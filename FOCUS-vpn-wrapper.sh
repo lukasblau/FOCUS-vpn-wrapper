@@ -29,7 +29,7 @@ fi
 # check if the tmp folder exists for cookies or create it
 if [ ! -d "$SCRIPTDIR/tmp" ]; then
     echo "The tmp folder does not exist. Try to create it with 'mkdir -p $SCRIPTDIR/tmp'"
-    mkdir -p $"SCRIPTDIR"/tmp
+    exit 1
 fi
 
 # check if the cookies file exists or create it
@@ -60,7 +60,7 @@ google-chrome --app="data:text/html,<html><header><title>Captcha</title></header
 
 # read captcha and password from user
 read -p "Please enter the captcha: " CAPTCHA_Response
-read -p "Please enter the password for $USERNAME: \n" -s PASSWORD
+read -p "Please enter the password for $USERNAME:" -s PASSWORD
 
 
 # authenticate and save the cookie
